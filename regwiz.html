@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>		<meta charset="en" />
+		<title>RegWiz</title>				<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+		<script src="/cse170project/jquery-1.11.0.js"></script>
+		<script src="/cse170project/rml.js"></script>
+				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />		<!--<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes" />-->
+				<style> 
+			img.fullscreen{ height: 100%; width: 100%;}		</style>
+		
+	</head>
+	
+	
+	<body>		<div data-role="page" id="home"> 			<header data-role="header" data-theme="b">				<h1>RegWiz</h2>			</header>			<article data-role="content">				<ul id="classList "
+					data-role="listview" 					data-filter="true" 
+					data-insert="true"					data-filter-theme="c"					data-filter-placeholder="type in classes to look up">					<li>						<a href="#bio101" data-transition="slide">							<h1>BIO 101</h1>							<p>Introduction course for BIO 101</p>						</a>					</li>
+					<li>
+						<a href="#bio101l" data-transition="slide">
+							<h1>BIO 101L</h1>
+							<p>BIO 102 is fun</p>
+						</a>
+					</li>				</ul>			</article>						<!--<footer data-role="footer" 					data-theme="b" 					data-position="fixed">				<nav data-role="navbar">					<ul>
+						<li><a href="#" data-icon="grid">My Schedule</a></li>						<li><a href="#" data-icon="home">Home</a></li>						<li><a href="#" data-icon="info">Info</a></li>					</ul>				</nav>			</footer>-->		</div> <!-- page -->						<div data-role="page" id="bio101"> 			<header data-role="header" 					data-theme="b">				<h1>BIO 101</h1>				<a href="#home"></a>				<img src="cse170project/p1.jpg" class="fullscreen" alt="mty"/>			</header>		</div> <!-- page -->				<div data-role="page" id="bio101l"> 			<header data-role="header"					data-theme="b">				<h1>BIO 101L</h1>				<a href="#home"></a>								<img src="cse170project/p2.jpg" class="fullscreen" alt="sly"/>			</header>		</div> <!-- page -->
+	</body>
+	
+<!--	<script type="text/javascript">
+		$.getJSON("cse170project/cse.json", function(data) {
+			$.each(data.cse, function () {
+			
+				$("ul").append("<h1>"+this["name"]+"</h1><p>"+this["description"]+"</p>");
+			});
+		});
+	</script>-->
+	
+	<script type="text/javascript">
+		$.getJSON("cse170project/cse.json", function(class) {
+			$("#classList").empty();
+			$.each(class, function(i, class) {
+				$("#classList").append(generateClassLink(class));
+			});
+			$("#classList").listview("refresh");
+		});
+	</script>
+	<!--<script type="text/javascript">
+		function generateClassLink(class){
+			return '<li><a href="javascript:void(0)'
+				+	'" onclick="goToClassDetailPage(\''
+				+	class.name
+				+	'\',\''
+				+	class.description +  '\')">'
+				+	class.name
+				+	'</a></li>';
+		}
+	</script>-->
+</html
+
+
+
+
+
+
+
+

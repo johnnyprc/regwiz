@@ -1,0 +1,7 @@
+{
+	"cse": [
+		{ "name": "CSE 15", "description": "CSE 15 is intro to programming" },
+		{ "name": "CSE 20", "description": "CSE 20 covers probabilities" },
+		{ "name": "CSE 21", "description": "CSE 21 is fun!!" }
+	]
+}
